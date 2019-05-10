@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "author": "Peter Squicciarini <stripedpajamas273@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stripedpajamas/case-insensitive-map.git"
+  },
   "scripts": {
     "test": "ava"
   },
