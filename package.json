@@ -1,0 +1,12 @@
+{
+  "name": "case-insensitive-map",
+  "version": "1.0.0",
+  "author": "Peter Squicciarini <stripedpajamas273@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "ava"
+  },
+  "devDependencies": {
+    "ava": "^1.4.1"
+  }
+}
