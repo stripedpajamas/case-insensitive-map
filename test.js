@@ -1,25 +1,40 @@
 const test = require('ava')
 const CIM = require('.')
 
-let map
-
 test.beforeEach((t) => {
-  map = new CIM()
+  t.context.map = new CIM()
 })
 
 test('throws if key is not a string', (t) => {
+  const { map } = t.context
   t.throws(() => {
     map.set([1, 2, 3], 'hello')
   })
 })
 
 test('is case insensitive', (t) => {
+  const { map } = t.context
   map.set('hello', 'world')
   
   t.is(map.get('Hello'), 'world')
 })
 
+test('construct with iterable', (t) => {
+  const data = [['a', 'apple'], ['b', 'banana'], ['C', 'cherry']]
+  const map = new CIM(data)
+
+  t.is(map.get('a'), 'apple')
+  t.is(map.get('B'), 'banana')
+  t.is(map.get('c'), 'cherry')
+})
+
+test('construct with invalid iterable', (t) => {
+  const data = [['a', 'apple'], [613, 'num'], [{}, 'obj']]
+  t.throws(() => new CIM(data))
+})
+
 test('normal map stuff works', (t) => {
+  const { map } = t.context
   map.set('hello', 'world')
   map.set('goodbye', 'moon')
 

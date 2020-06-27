@@ -5,8 +5,8 @@ function confirmStringKey (key) {
 }
 
 module.exports = class extends Map {
-  constructor () {
-    super()
+  constructor (...args) {
+    super(...args)
   }
   set (key, val) {
     confirmStringKey(key)
